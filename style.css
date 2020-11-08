@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
 .navbar {
@@ -96,6 +99,36 @@
     background: url(./asset/images/cover.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
+    -webkit-animation: slide 10s linear infinite;
+    animation: slide 10s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    0% {
+        background-image: url(./asset/images/cover.jpg);
+    }
+
+    33% {
+        background-image: url(./asset/images/cover2.jpg);
+    }
+
+    67% {
+        background-image: url(./asset/images/cover3.jpg);
+    }
+}
+
+@keyframes slide {
+    0% {
+        background-image: url(./asset/images/cover.jpg);
+    }
+
+    33% {
+        background-image: url(./asset/images/cover2.jpg);
+    }
+
+    67% {
+        background-image: url(./asset/images/cover3.jpg);
+    }
 }
 
 #home .inner-width {
@@ -119,7 +152,20 @@
 
 #home .content h1::after {
     content: "Hi I'm Phuong";
+    -webkit-animation: textanim 10s linear infinite;
     animation: textanim 10s linear infinite;
+}
+
+@-webkit-keyframes textanim {
+    25% {
+        content: "I'm A Fullstack Developer";
+    }
+    50% {
+        content: "I'm eager to learn anything";
+    }
+    75% {
+        content: "Talk less, Do more"
+    }
 }
 
 @keyframes textanim {
@@ -165,6 +211,132 @@
 #home .buttons a:nth-child(2) {
     background-color: #48dbfb;
     color: #ffffff;
+}
+
+#about {
+    padding: 100px 0;
+    background-color: #f1f1f1;
+}
+
+#about .section-title {
+    text-align: center;
+    color: #111;
+    font-size: 26px;
+    padding-bottom: 20px;
+    position: relative;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    bottom: 0;
+    background-color: #111;
+    left: calc(50% - 40px)
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 15px;
+    border: 4px solid #f1f1f1;
+    background-color: #48dbfb;
+    bottom: -5px;
+    left: calc(50% - 10px);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.about-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 100px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    color: #111;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.about-text p {
+    font-size: 17px;
+    text-align: justify;
+    line-height: 26px;
+    margin-top: 20px;
+}
+
+.skills {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: calc(50% - 20px);
+    margin: 15px 0;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-bar {
+    height: 3px;
+    background-color: #ddd;
+    margin-top: 14px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.skill-bar::after {
+    height: 6px;
+    position: absolute;
+    content: "";
+    background-color: #48dbfb;
+    width: 50%;
+    bottom: -2px;
+    border-radius: 2px;
+}
+
+.html::after {
+    width: 75%;
+}
+
+.css::after {
+    width: 75%;
+}
+
+.js::after {
+    width: 70%;
+}
+
+.csharf::after {
+    width: 60%;
+}
+
+.react::after {
+    width: 70%;
+}
+
+.sql::after {
+    width: 60%;
 }
 
 @media screen and (max-width: 980px) {
@@ -215,5 +387,28 @@
     #home .content h1 {
         margin-top: 50px;
         font-size: 40px;
+    }
+
+    .inner-width {
+        max-width: 800px;
+    }
+
+    .about-pic {
+        margin: 0 auto 60px;
+    }
+
+    .about-text {
+        flex: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .inner-width {
+        padding: 0 20px;
+    }
+
+    .skill {
+        width: 100%;
     }
 }
